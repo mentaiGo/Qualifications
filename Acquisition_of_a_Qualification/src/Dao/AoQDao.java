@@ -28,9 +28,19 @@ public class AoQDao {
 					"yhsrntk1115"
 					);
 
-			String sql = "SELECR * FROM students";
+			String sql = "SELECT * FROM students";
 
 			pstmt = con.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+
+			while(rs.next() == true){
+				int sId = rs.getInt("stID");
+				String cha = rs.getString("schar");
+				int gra = rs.getInt("grade");
+				int cla = rs.getInt("sclass");
+				reList.add(new AoQ(sId,cha,gra,cla));
+			}
 
 		} catch (SQLException | ClassNotFoundException e){
 			System.out.println("DBアクセスに失敗しました。");
