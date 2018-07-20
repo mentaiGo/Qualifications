@@ -2,16 +2,16 @@ package Dto;
 
 public class AoQ {
 	private int stid;
-	private String schar;
+	private String name;
 	private int grade;
 	private int sclass;
 
 
 	public AoQ(){}
 
-	public AoQ(int stid , String schar , int grade , int sclass) {
+	public AoQ(int stid , String name , int grade , int sclass) {
 		this.stid = stid;
-		this.schar = schar;
+		this.name = name;
 		this.grade = grade;
 		this.sclass = sclass;
 
@@ -26,11 +26,11 @@ public class AoQ {
 	}
 
 	public String getSchar() {
-		return schar;
+		return name;
 	}
 
-	public void setSchar(String schar) {
-		this.schar = schar;
+	public void setSchar(String name) {
+		this.name = name;
 	}
 
 	public int getGrade() {

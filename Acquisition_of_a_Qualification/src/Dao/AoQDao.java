@@ -36,7 +36,7 @@ public class AoQDao {
 
 			while(rs.next() == true){
 				int sId = rs.getInt("stID");
-				String cha = rs.getString("schar");
+				String cha = rs.getString("name");
 				int gra = rs.getInt("grade");
 				int cla = rs.getInt("sclass");
 				reList.add(new AoQ(sId,cha,gra,cla));
