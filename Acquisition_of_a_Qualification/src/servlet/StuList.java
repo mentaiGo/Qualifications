@@ -25,8 +25,7 @@ public class StuList extends HttpServlet {
      */
     public StuList() {
         super();
-        // TODO Auto-generated constructor stub
-    }
+     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

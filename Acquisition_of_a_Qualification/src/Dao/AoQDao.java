@@ -75,4 +75,66 @@ public class AoQDao {
 
 		return reList;
 	}
+	//生徒追加
+	public static ArrayList<AoQ> insertSt(int idKey,int grKey,String clKey,String naKey){
+		ArrayList<AoQ> reList = new ArrayList<AoQ>();
+
+		//変数の初期化
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/qualifications?useSSL=false",
+					"root",
+					"yhsrntk1115"
+					);
+
+			String sql = "insert into students (stID,grade,class,name)values (?,?,?,?)";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1,idKey);
+			pstmt.setInt(2,grKey);
+			pstmt.setString(3,clKey);
+			pstmt.setString(4,naKey);
+
+			pstmt.executeUpdate();
+
+
+		} catch (SQLException | ClassNotFoundException e){
+			System.out.println("DBアクセスに失敗しました。");
+			e.printStackTrace();
+		} finally {
+			try {
+				if( rs != null){
+					rs.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+			try {
+				if( pstmt != null){
+					pstmt.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+
+			try {
+				if( con != null){
+					con.close();
+				}
+			} catch (SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
+
+		return reList;
+	}
 }
