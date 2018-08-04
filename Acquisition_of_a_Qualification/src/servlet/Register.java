@@ -53,7 +53,7 @@ public class Register extends HttpServlet {
 		//リクエストスコープで保存
 		request.setAttribute("studentadd", list);
 
-		String view="/WEB-INF/view/addstudents.jsp";
+		String view="/WEB-INF/view/addresult.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request,response);
 	}
