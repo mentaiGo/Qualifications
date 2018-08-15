@@ -42,13 +42,14 @@ public class Register extends HttpServlet {
 
 		String idkey = request.getParameter("sid");
 		String gradekey = request.getParameter("grade");
-		String classkey = request.getParameter("class");
+		String classkey = request.getParameter("sclass");
 		String namekey = request.getParameter("sname");
 
 		int sidkey = Integer.parseInt(idkey);
 		int sgradekey = Integer.parseInt(gradekey);
+		int sclkey = Integer.parseInt(classkey);
 
-		ArrayList<AoQ>list = AoQDao.insertSt(sidkey, sgradekey, classkey, namekey);
+		ArrayList<AoQ>list = AoQDao.insertSt(sidkey, sgradekey, sclkey, namekey);
 
 		//リクエストスコープで保存
 		request.setAttribute("studentadd", list);

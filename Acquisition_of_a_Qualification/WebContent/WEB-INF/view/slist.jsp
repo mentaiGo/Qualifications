@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="Dto.AoQ,java.util.ArrayList"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>生徒一覧</title>
+<link rel="stylesheet" href="Acquisition_of_a_Qualification/css/style.css">
 </head>
 <body>
 	<p>生徒一覧</p>
-	<table border="1">
+	<table>
 		<tr>
 			<th>生徒ID</th>
 			<th>学年</th>
@@ -33,6 +35,6 @@
 			}
 		%>
 	</table>
-	<a href="./servlet/Relay">生徒登録画面へ</a>
+	<a href=http://localhost:6356/acquisition_of_a_qualification/Relay>生徒登録画面へ</a>
 </body>
 </html>

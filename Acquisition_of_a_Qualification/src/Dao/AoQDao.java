@@ -36,10 +36,10 @@ public class AoQDao {
 
 			while(rs.next() == true){
 				int sId = rs.getInt("stID");
-				String cha = rs.getString("name");
 				int gra = rs.getInt("grade");
 				int cla = rs.getInt("sclass");
-				reList.add(new AoQ(sId,cha,gra,cla));
+				String cha = rs.getString("name");
+				reList.add(new AoQ(sId,gra,cla,cha));
 			}
 
 		} catch (SQLException | ClassNotFoundException e){
@@ -76,7 +76,7 @@ public class AoQDao {
 		return reList;
 	}
 	//生徒追加
-	public static ArrayList<AoQ> insertSt(int idKey,int grKey,String clKey,String naKey){
+	public static ArrayList<AoQ> insertSt(int idKey,int grKey,int clKey,String naKey){
 		ArrayList<AoQ> reList = new ArrayList<AoQ>();
 
 		//変数の初期化
@@ -93,16 +93,15 @@ public class AoQDao {
 					"yhsrntk1115"
 					);
 
-			String sql = "insert into students (stID,grade,class,name)values (?,?,?,?)";
+			String sql = "insert into students (stID,grade,sclass,name) values (?,?,?,?)";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1,idKey);
 			pstmt.setInt(2,grKey);
-			pstmt.setString(3,clKey);
+			pstmt.setInt(3,clKey);
 			pstmt.setString(4,naKey);
 
 			pstmt.executeUpdate();
-
 
 		} catch (SQLException | ClassNotFoundException e){
 			System.out.println("DBアクセスに失敗しました。");

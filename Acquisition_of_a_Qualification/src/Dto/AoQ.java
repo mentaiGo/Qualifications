@@ -2,18 +2,18 @@ package Dto;
 
 public class AoQ {
 	private int stid;
-	private String name;
 	private int grade;
 	private int sclass;
+	private String name;
 
 
 	public AoQ(){}
 
-	public AoQ(int stid , String name , int grade , int sclass) {
+	public AoQ(int stid , int grade , int sclass, String name ) {
 		this.stid = stid;
-		this.name = name;
 		this.grade = grade;
 		this.sclass = sclass;
+		this.name = name;
 
 	}
 
@@ -23,14 +23,6 @@ public class AoQ {
 
 	public void setStid(int stid) {
 		this.stid = stid;
-	}
-
-	public String getSchar() {
-		return name;
-	}
-
-	public void setSchar(String name) {
-		this.name = name;
 	}
 
 	public int getGrade() {
@@ -47,6 +39,13 @@ public class AoQ {
 
 	public void setSclass(int sclass) {
 		this.sclass = sclass;
+	}
+	public String getSchar() {
+		return name;
+	}
+
+	public void setSchar(String name) {
+		this.name = name;
 	}
 
 };
