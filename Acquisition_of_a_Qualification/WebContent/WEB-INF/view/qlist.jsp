@@ -16,8 +16,33 @@
 			<th>資格名前</th>
 			<th>受験日</th>
 			<th>合否</th>
-			<th>
 		</tr>
+		<%
+			@SuppressWarnings("unchecked")
+			ArrayList<AoQ> list = (ArrayList<AoQ>) request.getAttribute("showlist");
+		%>
+		<%
+			for (AoQ st : list) {
+		%>
+		<tr>
+			<td><%=st.getSid()%></td>
+			<td><%=st.getSchar()%></td>
+			<td><%=st.getQna()%></td>
+			<td><%=st.getExa()%></td>
+			<td>
+				<%
+					if (st.getSo() == true) {
+				%> 合格 <%
+					} else {
+				%> 不合格 <%
+					}
+				%>
+			</td>
+		</tr>
+		<%
+			}
+		%>
 	</table>
+	<a href=http://localhost:6356/acquisition_of_a_qualification/StuList>生徒画面</a>
 </body>
 </html>

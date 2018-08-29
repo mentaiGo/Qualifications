@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+		<%@ page import="Dto.AoQ,java.util.ArrayList"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +18,7 @@
 				type="text" name="sname"> <input type=submit value="登録">
 		</p>
 	</form>
-	<a href=http://localhost:6356/acquisition_of_a_qualification/StuList>生徒一覧表示へ</a>
+	<a href=http://localhost:6356/acquisition_of_a_qualification/StuList>生徒一覧</a>
 
 </body>
 </html>

@@ -14,49 +14,41 @@ import Dao.AoQDao;
 import Dto.AoQ;
 
 /**
- * Servlet implementation class Register
+ * Servlet implementation class QuaList
  */
-@WebServlet("/Register")
-public class Register extends HttpServlet {
+@WebServlet("/QuaList")
+public class QuaList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Register() {
+	public QuaList() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("UTF-8");
+
+		//データベースから値を取得
+		ArrayList<AoQ> showlist = AoQDao.AllList();
+
+		request.setAttribute("showlist",showlist);
+
+		String view = "/WEB-INF/view/qlist.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+		dispatcher.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-
-		String idkey = request.getParameter("sid");
-		String gradekey = request.getParameter("grade");
-		String classkey = request.getParameter("sclass");
-		String namekey = request.getParameter("sname");
-
-		int sidkey = Integer.parseInt(idkey);
-		int sgradekey = Integer.parseInt(gradekey);
-		int sclkey = Integer.parseInt(classkey);
-
-		ArrayList<AoQ> list = AoQDao.insertSt(sidkey, sgradekey, sclkey, namekey);
-
-		//リクエストスコープで保存
-		request.setAttribute("studentadd", list);
-
-		String view="/WEB-INF/view/addresult.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-		dispatcher.forward(request,response);
+		doGet(request, response);
 	}
 
 }
